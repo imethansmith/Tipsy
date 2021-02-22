@@ -21,6 +21,8 @@ class CalculatorViewController: UIViewController {
     var currentButton: UIButton?
     
     @IBAction func tipChanged(_ sender: UIButton) {
+        billTextField.endEditing(true)
+        
         currentButton?.isSelected = false
         currentButton = sender
         currentButton?.isSelected = true
@@ -35,11 +37,11 @@ class CalculatorViewController: UIViewController {
         func currentPct () -> Double {
             switch currentButton?.currentTitle {
             case "0%":
-                return 0.0
+                return 1.0
             case "10%":
-                return 0.1
+                return 1.1
             default:
-                return 0.2
+                return 1.2
             }
         }
         let getCurrentPct = currentPct()
